@@ -1,0 +1,53 @@
+#Find Commands List
+
+find / -perm a=x : find executable files
+
+- find /home -user <name> : find all files for the user “<>” in “/home”
+
+- find / -mtime 10 : find files that were modified in the last 10 days
+
+- find / -atime 10 : find files accessed in the last 10 days
+
+- find / -cmin -60 : find files changed in the last hour (60 minutes)
+
+- ´find / -amin -60 : find files accessed in the last hour (60 minutes)
+
+- ´find / -size 50M  : find files with a size of 50 MB
+
+- `find / -type f -exec grep -l "flag" {} \;`: looks for files that contain “flag” in the content throughout the system.
+
+- `find / -name "*flag*"`: looks for files that have “flag” in the name throughout the system.
+
+- To find files with special permissions, you can use the `perm` option with the numeric or symbolic code of the permission. For example:
+
+- `find / -perm 777`: looks for files that have read, write and execute permission for all users throughout the system.
+
+- `find / -perm /u=s`: looks for files that have the SUID bit enabled throughout the system.
+
+- To find executable files, you can use the `executable` option or combine the `perm` option with the `type f` option. For example:
+
+- `find / -executable`: looks for files that are executable by the current user throughout the system.
+
+- `find / -type f -perm /a=x`: looks for files that have execute permission for any user throughout the system.
+
+- `find /home/user -name "*.txt"`: looks for files with .txt extension in the /home/user directory.
+
+- `find /var/log -mtime -7`: looks for files that were modified in the last 7 days in the /var/log directory.
+
+- `find /usr/bin -size +1M`: looks for files that have more than 1 MB of size in the /usr/bin directory.
+
+- `find /etc -user root`: looks for files that belong to the root user in the /etc directory.
+
+- `find /tmp -empty`: looks for empty files or directories in the /tmp directory.
+
+- `find /opt -iname "java"`: looks for files or directories that have “java” in the name, ignoring case difference, in the /opt directory.
+
+- `find /dev -type b`: looks for block type files in the /dev directory.
+
+- `find . -newer arquivo.txt`: looks for files that are newer than arquivo.txt in the current directory.
+
+- `find . -type d -exec ls -ld {} \;`: looks for directories and executes the ls -ld command for each one of them in the current directory.
+
+- `find . -type f -name "*.sh" -delete`: looks for files with .sh extension and deletes them in the current directory.
+
+- `find . -type f ! -name "*.jpg" ! -name "*.png"`: looks for files that do not have .jpg or .png extension in the current directory.
